@@ -2,14 +2,11 @@
 #include<sstream>
 #include <iostream>
 #include <fstream>
-#include <random>
-#include <algorithm>
 //References used for file
-//https://cplusplus.com/reference/algorithm/shuffle/ for scrambling vector and using random for random generator
 //https://cplusplus.com/reference/fstream/ifstream/ for ifstream for reading from file
 //Written by Andrew Goldstein
 
-bool FileParser::FileToVector(std::string fileName, int lineLimit, std::vector<std::pair<unsigned int, std::string>>& vec)
+bool FileParser::FileToVector(std::string fileName, int lineLimit, std::vector<std::string> & vec)
 {
 	//Checks to see if line limit is within acceptable range
 	if (lineLimit < 100000 || lineLimit > 999997)
@@ -43,7 +40,7 @@ bool FileParser::FileToVector(std::string fileName, int lineLimit, std::vector<s
 				std::getline(lineStream, next, ',');
 				unsigned int rank = std::stoul(next);
 				std::getline(lineStream, next);
-				vec.push_back(std::make_pair(rank, next));
+				vec.push_back(next);
 			}
 
 		}
@@ -56,14 +53,6 @@ bool FileParser::FileToVector(std::string fileName, int lineLimit, std::vector<s
 			return false;
 		}
 
-		//Scrambles for testing sorting algorithms
-		ScrambleVector(vec, 10);
 	}
 	return true;
-}
-
-//for testing sorting algorithms, will scramble a given vector using random generator from random library and a given seed 
-void FileParser::ScrambleVector(std::vector<std::pair<unsigned int, std::string>>& vec, int seed)
-{
-	std::shuffle(vec.begin(), vec.end(), std::default_random_engine(seed));
 }

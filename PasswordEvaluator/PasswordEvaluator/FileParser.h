@@ -4,8 +4,6 @@
 class FileParser
 {
 public:
-	bool FileToVector(std::string fileName, int lineLimit, std::vector<std::pair<unsigned int, std::string>>& vec);
-private:
-	void ScrambleVector(std::vector<std::pair<unsigned int, std::string>>& vec, int seed);
+	bool FileToVector(std::string fileName, int lineLimit, std::vector<std::string> & vec);
 };
 
