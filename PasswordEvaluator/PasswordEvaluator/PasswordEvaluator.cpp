@@ -1,4 +1,5 @@
 #include <iostream>
+#include "heapSort.h"
 #include "FileParser.h"
 #include <vector>
 #include <iomanip>
