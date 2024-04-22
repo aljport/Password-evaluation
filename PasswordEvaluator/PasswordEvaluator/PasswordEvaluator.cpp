@@ -1,5 +1,6 @@
 #include <iostream>
 #include "heapSort.h"
+#include "binarySearch.h"
 #include "FileParser.h"
 #include <vector>
 #include <iomanip>
@@ -79,7 +80,13 @@ int main()
             timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
             auto heapTimeElapsed = timeElapsed.count();
             
-            //Search password here
+            // Search for user input password
+            binarySearch bs;
+            if (bs.isFound(userPassword, passwordsSorted)) {
+                std::cout << userPassword << " is found in this list."  << std::endl;
+            } else {
+                std::cout << userPassword << " is not found in this list."  << std::endl;
+            }
 
             std::cout << "Results:" << std::endl;
             //Results here
