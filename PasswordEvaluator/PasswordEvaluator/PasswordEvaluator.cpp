@@ -61,14 +61,20 @@ int main()
             std::vector<std::string> passwordsSorted = passwords;
             
             std::chrono::high_resolution_clock::time_point tStart = std::chrono::high_resolution_clock::now();
-            //start algorithm 1 here
+            
+            //======Algorithm 1======//
+            
             std::chrono::high_resolution_clock::time_point tEnd = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
             auto mergeTimeElapsed = timeElapsed.count();
 
             passwordsSorted = passwords;
             tStart = std::chrono::high_resolution_clock::now();
-            //start algorithm 2 here
+
+            //======Algorithm 2======//
+            heapSort heapSort;
+            heapSort.sort(passwordsSorted);
+            
             tEnd = std::chrono::high_resolution_clock::now();
             timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
             auto heapTimeElapsed = timeElapsed.count();
