@@ -60,13 +60,14 @@ int main()
         {
             std::cout << "Please enter a password to search for." << std::endl;
             std::string userPassword;
+            std::cin >> userPassword;
             std::vector<std::string> passwordsSorted = passwords;
             
             std::chrono::high_resolution_clock::time_point tStart = std::chrono::high_resolution_clock::now();
             
             //======Algorithm 1======//
             mergeSort mergeSort;
-            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size());
+            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size()-1);
 
 
             std::chrono::high_resolution_clock::time_point tEnd = std::chrono::high_resolution_clock::now();
@@ -87,17 +88,19 @@ int main()
             // Search for user input password
             binarySearch bs;
             if (bs.isFound(userPassword, passwordsSorted)) {
-                std::cout << userPassword << " is found in this list."  << std::endl;
+                std::cout << userPassword << " is found in the top 100,000 most common passwords."  << std::endl;
+                std::cout << "You may want to create a more uncommon password." << std::endl;
             } else {
-                std::cout << userPassword << " is not found in this list."  << std::endl;
+                std::cout << userPassword << " is not found in the top 100,000 most common passwords."  << std::endl;
+                std::cout << "That's great! You're password is not super common!" << std::endl;
             }
 
-            std::cout << "Results:" << std::endl;
+            std::cout << std::endl << "Results:" << std::endl;
             //Results here
             std::cout << "Analysis of sorting algorithms" << std::endl;
             std::cout << "------------------------------" << std::endl;
-            std::cout << "The Merge Sort Algorithm Took: " << mergeTimeElapsed << "seconds." << std::endl;
-            std::cout << "The Heap Sort Algorithm Took: " << heapTimeElapsed << "seconds." << std::endl;
+            std::cout << "The Merge Sort Algorithm Took: " << mergeTimeElapsed << " seconds." << std::endl;
+            std::cout << "The Heap Sort Algorithm Took: " << heapTimeElapsed << " seconds." << std::endl;
 
         }
         //If user selects 3, then calculate each sorting algorithm's time elapsed and display results
