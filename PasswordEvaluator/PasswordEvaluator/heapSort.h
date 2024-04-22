@@ -3,6 +3,7 @@
 using namespace std;
 // Written by Anna Portugal
 class heapSort {
+public:
     void swap(string& a, string& b);
     void makeHeap(vector<string>& data, int size, int index);
     void sort(vector<string>& data);
