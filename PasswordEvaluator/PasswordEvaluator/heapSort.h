@@ -4,13 +4,13 @@ using namespace std;
 // Written by Anna Portugal
 class heapSort {
 public:
-    void swap(string& a, string& b);
+    void swapVals(string& a, string& b);
     void makeHeap(vector<string>& data, int size, int index);
     void sort(vector<string>& data);
 };
 
 // Helper function to swap two values
-void heapSort::swap(string& a, string& b) {
+void heapSort::swapVals(string& a, string& b) {
     string temp = a;
     a = b;
     b = temp;
@@ -43,7 +43,7 @@ void heapSort::makeHeap(vector<string>& data, int size, int index) {
     if (parent != index) {
         // Parent with greater value will be swapped
         // Complies with properties of a max heap
-        swap(data.at(index), data.at(parent));
+        swapVals(data.at(index), data.at(parent));
         makeHeap(data, size, parent);
     }
 }
@@ -67,7 +67,7 @@ void heapSort::sort(vector<string>& data) {
     while (j > 0) {
 
         // Swap the current max and the last index
-        swap(data.at(j), data.at(0));
+        swapVals(data.at(j), data.at(0));
 
         // Re-heapify on the smaller heap
         makeHeap(data, j, 0);
