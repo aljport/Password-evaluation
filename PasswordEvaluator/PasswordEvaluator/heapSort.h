@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-
+// Written by Anna Portugal
 class heapSort {
     void swap(string& a, string& b);
     void makeHeap(vector<string>& data, int size, int index);
@@ -16,7 +16,7 @@ void heapSort::swap(string& a, string& b) {
 }
 
 // Function to re-heapify after a swap is made
-void makeHeap(vector<string>& data, int size, int index) {
+void heapSort::makeHeap(vector<string>& data, int size, int index) {
 
     // First find indexes of parent, right child, and left child
     int parent = index;
