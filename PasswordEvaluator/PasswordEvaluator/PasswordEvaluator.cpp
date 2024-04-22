@@ -1,5 +1,6 @@
 #include <iostream>
 #include "heapSort.h"
+#include "mergeSort.h"
 #include "FileParser.h"
 #include <vector>
 #include <iomanip>
@@ -63,7 +64,10 @@ int main()
             std::chrono::high_resolution_clock::time_point tStart = std::chrono::high_resolution_clock::now();
             
             //======Algorithm 1======//
-            
+            mergeSort mergeSort;
+            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size());
+
+
             std::chrono::high_resolution_clock::time_point tEnd = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
             auto mergeTimeElapsed = timeElapsed.count();
@@ -92,21 +96,28 @@ int main()
         //If user selects 3, then calculate each sorting algorithm's time elapsed and display results
         else if (input == 3)
         {
+            std::vector<std::string> passwordsSorted = passwords;
             std::cout << std::endl << "Results: " << std::endl;
             std::chrono::high_resolution_clock::time_point tStart = std::chrono::high_resolution_clock::now();
-            //start algorithm 1 here
 
+             //======Algorithm 1======//
+            mergeSort mergeSort;
+            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size()-1);
 
             std::chrono::high_resolution_clock::time_point tEnd = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd-tStart);
-            std::cout << "The Merge Sort Algorithm Took: " << timeElapsed.count() << "seconds." << std::endl;
+            std::cout << "The Merge Sort Algorithm Took: " << timeElapsed.count() << " seconds." << std::endl;
 
-
+            passwordsSorted = passwords;
             tStart = std::chrono::high_resolution_clock::now();
-            //start algorithm 2 here
+            
+            //======Algorithm 2======//
+            heapSort heapSort;
+            heapSort.sort(passwordsSorted);
+
             tEnd = std::chrono::high_resolution_clock::now();
             timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
-            std::cout << "The Heap Sort Algorithm Took: " << timeElapsed.count() << "seconds." << std::endl;
+            std::cout << "The Heap Sort Algorithm Took: " << timeElapsed.count() << " seconds." << std::endl;
         }
         //If user did not select any of the options, then ask for a new number
         else
