@@ -45,24 +45,3 @@ void mergeSort::mSort(std::vector<string>& vec, int beg, int end){
         merge(vec, beg, mid, end);
     }
 }
-
-// print the vector
-void mergeSort::printVector(vector<string> vec){
-    for(int i = 0; i < vec.size(); i++)
-        cout << vec[i] << " ";
-}
-
-/*
-// testing purposes
-int main(){
-    vector<string> vec;
-    vec.push_back("alice");
-    vec.push_back("bob");
-    vec.push_back("anna");
-    vec.push_back("andrew");
-    mergeSort(vec, 0, vec.size() - 1);
-    cout << "Sorted vector: " << endl;
-    printVector(vec);
-    return 0;
-}
-*/
