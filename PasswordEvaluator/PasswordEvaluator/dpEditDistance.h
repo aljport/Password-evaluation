@@ -7,7 +7,7 @@ using namespace std;
 
 // tabulation/bottom-up method
 // referenced https://www.geeksforgeeks.org/edit-distance-dp-5/
-void editDistance(string firstWord, string secondWord){
+int editDistance(string firstWord, string secondWord){
     vector<vector<int>> dpTable(firstWord.length() + 1, vector<int>(secondWord.length() + 1));
 
     for(int i = 1; i <= firstWord.length(); i++){
@@ -27,5 +27,5 @@ void editDistance(string firstWord, string secondWord){
         }
     }
 
-    cout << dpTable[firstWord.length()][secondWord.length()];
+    return dpTable[firstWord.length()][secondWord.length()];
 }

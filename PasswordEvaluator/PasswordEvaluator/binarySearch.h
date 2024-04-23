@@ -12,7 +12,7 @@ bool binarySearch::isFound(string& input, vector<string>& data)  {
     int right = data.size() - 1;
     int left = 0;
 
-    while (right > left) {
+    while (right >= left) {
         // Find middle of search area
         int middle = (right - left) / 2 + left;
 
@@ -27,7 +27,7 @@ bool binarySearch::isFound(string& input, vector<string>& data)  {
 
         // If string at midpoint is greater than the input, the left half gets searched
         } else {
-            right = -1 + middle;
+            right = middle - 1;
         }
     }
     return false;
