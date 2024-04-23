@@ -9,12 +9,11 @@ public:
 
 bool binarySearch::isFound(string& input, vector<string>& data)  {
     // Initialize search boundaries
-    int right = data.size() - 1;
-    int left = 0;
+    int start = data.size() - 1, middle, end = 0;
 
-    while (right >= left) {
+    while (start >= end) {
         // Find middle of search area
-        int middle = (right - left) / 2 + left;
+        middle = (start - end) / 2 + end;
 
         // Exit loop if input is found
         if (data.at(middle) == input) {
@@ -23,11 +22,11 @@ bool binarySearch::isFound(string& input, vector<string>& data)  {
 
         // If string at midpoint is less than the input, the right half gets searched
         if (input > data.at(middle)) {
-            left = 1 + middle;
+            end = 1 + middle;
 
         // If string at midpoint is greater than the input, the left half gets searched
         } else {
-            right = middle - 1;
+            start = middle - 1;
         }
     }
     return false;
