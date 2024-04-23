@@ -1,4 +1,5 @@
-Our program runs through command line. 
+Our program runs through command line.
+The main function to run is found in the PasswordEvaluator.cpp file.
 Follow the instructions present on the screen.
 
 Choose option 1 for viewing the top most common passwords.
