@@ -1,1 +1,9 @@
 Our program runs through command line. 
+Follow the instructions present on the screen.
+
+Choose option 1 for viewing the top most common passwords.
+Choose option 2 for viewing the password list in sorted alphabetical order.
+Choose option 3 to search a given password in the top 100,000 most common passwords.
+Choose option 4 to compare a given password with all 100,000 passwords and display any similarities.
+Choose option 5 to show sorting algorithm results with time elapsed for each sorting calculation.
+Choose otpion 6 to exit the program. 
