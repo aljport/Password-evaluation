@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+// Written by Alice Zhang
+
 // tabulation/bottom-up method
 // referenced https://www.geeksforgeeks.org/edit-distance-dp-5/
 void editDistance(string firstWord, string secondWord){
