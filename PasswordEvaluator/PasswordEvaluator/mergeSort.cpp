@@ -4,6 +4,7 @@
 #include "mergeSort.h"
 using namespace std;
 
+// Written by Alice Zhang
 // referenced from slides 6 - Sorting pg. 88-90
 void mergeSort::merge(std::vector<string>& vec, int beg, int mid, int end){
     // creating two halves of vector
