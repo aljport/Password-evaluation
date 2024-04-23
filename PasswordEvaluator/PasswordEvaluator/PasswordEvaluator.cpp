@@ -17,7 +17,8 @@ int main()
     FileParser parser;
     if (parser.FileToVector("10millionPasswords", 100000, passwords) == true)
     {
-        std::cout << passwords.size() << std::endl;
+        //for testing
+        //std::cout << passwords.size() << std::endl;
     }
     
 
@@ -106,24 +107,27 @@ int main()
             std::chrono::high_resolution_clock::time_point tStart = std::chrono::high_resolution_clock::now();
             
             //======Algorithm 1======//
-            mergeSort mergeSort;
-            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size()-1);
 
+            heapSort heapSort;
+            heapSort.sort(passwordsSorted);
 
             std::chrono::high_resolution_clock::time_point tEnd = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
-            auto mergeTimeElapsed = timeElapsed.count();
+            auto heapTimeElapsed = timeElapsed.count();
 
             passwordsSorted = passwords;
             tStart = std::chrono::high_resolution_clock::now();
 
             //======Algorithm 2======//
-            heapSort heapSort;
-            heapSort.sort(passwordsSorted);
-            
+
+            mergeSort mergeSort;
+            mergeSort.mSort(passwordsSorted, 0, passwordsSorted.size() - 1);
+
+
             tEnd = std::chrono::high_resolution_clock::now();
             timeElapsed = std::chrono::duration_cast<std::chrono::duration<double>>(tEnd - tStart);
-            auto heapTimeElapsed = timeElapsed.count();
+            auto mergeTimeElapsed = timeElapsed.count();
+
             
             // Search for user input password
             binarySearch bs;
